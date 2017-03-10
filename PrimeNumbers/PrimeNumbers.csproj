@@ -47,6 +47,8 @@
     <Compile Include="Primes\PrimeNumberGenerator.cs" />
     <Compile Include="Primes\PrimeNumberGeneratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingCart\ShoppingCart.cs" />
+    <Compile Include="ShoppingCart\ShoppingCartTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
