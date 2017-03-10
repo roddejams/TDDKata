@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PrimeNumbers.ShoppingCart
@@ -16,6 +17,10 @@ namespace PrimeNumbers.ShoppingCart
         {
             var sum = _contents.Sum(shoppingItem => shoppingItem.Price);
 
+            if (sum > 200)
+            {
+                return sum*0.9;
+            }
             if (sum > 100)
             {
                 return sum*0.95;
@@ -34,6 +39,11 @@ namespace PrimeNumbers.ShoppingCart
 
         public ShoppingItem(double unitPrice, int quantity)
         {
+            if (quantity < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(quantity), "Please enter a positive quantity");
+            }
+
             UnitPrice = unitPrice;
             Quantity = quantity;
         }

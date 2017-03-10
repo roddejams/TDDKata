@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using NUnit.Framework;
 
@@ -49,6 +50,21 @@ namespace PrimeNumbers.ShoppingCart
             var cart = new ShoppingCart(new List<ShoppingItem> { item });
 
             Assert.That(cart.CalculatePrice(), Is.EqualTo(101 * 0.95));
+        }
+
+        [Test]
+        public void TenPercentDiscountShouldApplyOver200()
+        {
+            var item = new ShoppingItem(250, 1);
+            var cart = new ShoppingCart(new List<ShoppingItem> { item });
+            
+            Assert.That(cart.CalculatePrice(), Is.EqualTo(225));
+        }
+
+        [Test]
+        public void ShouldNotAllowNegativeQuantity()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => new ShoppingItem(10, -1));
         }
     }
 }
