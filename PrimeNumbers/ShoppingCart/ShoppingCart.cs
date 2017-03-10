@@ -20,12 +20,14 @@ namespace PrimeNumbers.ShoppingCart
 
     class ShoppingItem
     {
-        public double Price { get; set; }
+        public double UnitPrice { get; set; }
         public int Quantity { get; set; }
 
-        public ShoppingItem(double price, int quantity)
+        public double Price => UnitPrice*Quantity;
+
+        public ShoppingItem(double unitPrice, int quantity)
         {
-            Price = price;
+            UnitPrice = unitPrice;
             Quantity = quantity;
         }
     }
