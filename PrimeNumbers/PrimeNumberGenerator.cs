@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace PrimeNumbers
 {
@@ -6,7 +7,18 @@ namespace PrimeNumbers
     {
         public IEnumerable<int> GetPrimes()
         {
-            return new[] {2, 3};
+            var list = new List<int>();
+
+            for (int i = 2; i < 1000; i++)
+            {
+                var remainders = list.Select(x => i%x);
+                if (!remainders.Contains(0))
+                {
+                    list.Add(i);
+                }
+            }
+
+            return list;
         }
     }
 }
