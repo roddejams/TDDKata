@@ -48,7 +48,7 @@ namespace PrimeNumbers.ShoppingCart
             var item = new ShoppingItem(101, 1);
             var cart = new ShoppingCart(new List<ShoppingItem> { item });
 
-            Assert.That(cart.CalculatePrice(), Is.EqualTo(95.95));
+            Assert.That(cart.CalculatePrice(), Is.EqualTo(101 * 0.95));
         }
     }
 }
