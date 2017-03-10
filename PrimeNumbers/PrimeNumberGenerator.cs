@@ -6,7 +6,7 @@ namespace PrimeNumbers
     {
         public IEnumerable<int> GetPrimes()
         {
-            return new[] {2};
+            return new[] {2, 3};
         }
     }
 }
