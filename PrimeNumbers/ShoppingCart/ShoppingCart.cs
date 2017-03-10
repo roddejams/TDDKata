@@ -14,7 +14,14 @@ namespace PrimeNumbers.ShoppingCart
 
         public double CalculatePrice()
         {
-            return _contents.Sum(shoppingItem => shoppingItem.Price);
+            var sum = _contents.Sum(shoppingItem => shoppingItem.Price);
+
+            if (sum > 100)
+            {
+                return sum*0.95;
+            }
+
+            return sum;
         }
     }
 
