@@ -44,6 +44,11 @@ namespace PrimeNumbers.ShoppingCart
                 throw new ArgumentOutOfRangeException(nameof(quantity), "Please enter a positive quantity");
             }
 
+            if (unitPrice < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(unitPrice), "Please enter a positive price");
+            }
+
             UnitPrice = unitPrice;
             Quantity = quantity;
         }

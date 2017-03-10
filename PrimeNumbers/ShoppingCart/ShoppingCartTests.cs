@@ -66,5 +66,11 @@ namespace PrimeNumbers.ShoppingCart
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => new ShoppingItem(10, -1));
         }
+
+        [Test]
+        public void ShouldNotAllowNegativePrice()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => new ShoppingItem(-2, 1));
+        }
     }
 }
