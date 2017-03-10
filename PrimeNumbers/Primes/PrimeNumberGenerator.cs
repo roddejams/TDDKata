@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace PrimeNumbers
+namespace PrimeNumbers.Primes
 {
     public class PrimeNumberGenerator
     {

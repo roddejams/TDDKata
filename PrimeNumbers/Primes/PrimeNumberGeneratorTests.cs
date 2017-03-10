@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
-namespace PrimeNumbers
+namespace PrimeNumbers.Primes
 {
     class PrimeNumberGeneratorTests
     {

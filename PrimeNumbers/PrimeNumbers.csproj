@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PrimeNumberGenerator.cs" />
-    <Compile Include="PrimeNumberGeneratorTests.cs" />
+    <Compile Include="Primes\PrimeNumberGenerator.cs" />
+    <Compile Include="Primes\PrimeNumberGeneratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
