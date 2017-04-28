@@ -8,7 +8,7 @@ namespace MovieReviews
         [Test]
         public void CanAddAReview()
         {
-            var testMovie = SetupTestMovieWithReview();
+            var testMovie = GetTestMovie();
 
             Assert.That(testMovie.GetReviews(), Is.Not.Empty);
         }
@@ -16,7 +16,7 @@ namespace MovieReviews
         [Test]
         public void ShouldGetReviewRating()
         {
-            var testMovie = SetupTestMovieWithReview();
+            var testMovie = GetTestMovie();
 
             var addedReview = testMovie.GetReviews().First();
             Assert.That(addedReview.Rating(), Is.EqualTo(5));
@@ -25,7 +25,7 @@ namespace MovieReviews
         [Test]
         public void ShouldGetTheNameOfTheReviewer()
         {
-            var testMovie = SetupTestMovieWithReview();
+            var testMovie = GetTestMovie();
 
             var addedReview = testMovie.GetReviews().First();
             Assert.That(addedReview.ReviewerName(), Is.EqualTo("James"));
@@ -35,7 +35,7 @@ namespace MovieReviews
         public void DefaultNameShouldBeAnonymous()
         {
             var unamedReview = new Review(5, "Review");
-            var movie = SetupTestMovieWithReview(unamedReview);
+            var movie = GetTestMovie(unamedReview);
 
             var addedReview = movie.GetReviews().First();
             Assert.That(addedReview.ReviewerName(), Is.EqualTo("Anonymous"));
@@ -44,18 +44,29 @@ namespace MovieReviews
         [Test]
         public void ShouldGetTheTextOfTheReview()
         {
-            var testMovie = SetupTestMovieWithReview();
+            var testMovie = GetTestMovie();
 
             var addedReview = testMovie.GetReviews().First();
             Assert.That(addedReview.Text(), Is.EqualTo("TestReview"));
         }
-
-        private static Movie SetupTestMovieWithReview(Review review = null)
+         
+        private static Movie GetTestMovie(params Review[] reviews)
         {
             var testMovie = new Movie("Test");
-            review = review ?? new Review(5, "James", "TestReview");
 
-            testMovie.AddReview(review);
+            if (reviews.Length == 0)
+            {
+                var defaultReview = new Review(5, "James", "TestReview");
+                testMovie.AddReview(defaultReview);
+            }
+            else
+            {
+                foreach (var review in reviews)
+                {
+                    testMovie.AddReview(review);
+                }
+            }
+
             return testMovie;
         }
     }
