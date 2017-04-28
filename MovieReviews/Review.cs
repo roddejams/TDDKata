@@ -31,7 +31,7 @@ namespace MovieReviews
 
         public string Text()
         {
-            return "";
+            return _text;
         }
     }
 }
