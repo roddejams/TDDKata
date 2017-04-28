@@ -30,7 +30,7 @@ namespace MovieReviews
 
         public int NumberOfReviewsWithRating(int rating)
         {
-            return 1;
+            return m_Reviews.Count(review => review.Rating() == rating);
         }
     }
 }
