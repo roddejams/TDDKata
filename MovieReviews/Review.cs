@@ -5,14 +5,16 @@ namespace MovieReviews
     public class Review
     {
         private readonly int _rating;
+        private readonly string _text;
         private readonly string _reviewerName;
 
-        public Review(int rating)
+        public Review(int rating, string text)
         {
             _rating = rating;
+            _text = text;
         }
 
-        public Review(int rating, string reviewerName) : this(rating)
+        public Review(int rating, string reviewerName, string text) : this(rating, text)
         {
             _reviewerName = reviewerName;
         }
@@ -25,6 +27,11 @@ namespace MovieReviews
         public string ReviewerName()
         {
             return _reviewerName ?? "Anonymous";
+        }
+
+        public string Text()
+        {
+            return "";
         }
     }
 }
