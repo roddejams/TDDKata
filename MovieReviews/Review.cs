@@ -24,7 +24,7 @@ namespace MovieReviews
 
         public string ReviewerName()
         {
-            return _reviewerName;
+            return _reviewerName ?? "Anonymous";
         }
     }
 }
