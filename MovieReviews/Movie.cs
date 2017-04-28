@@ -20,5 +20,10 @@ namespace MovieReviews
         {
             return m_Reviews;
         }
+
+        public double CalculateAverageRating()
+        {
+            return 0;
+        }
     }
 }

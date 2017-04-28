@@ -49,6 +49,18 @@ namespace MovieReviews
             var addedReview = testMovie.GetReviews().First();
             Assert.That(addedReview.Text(), Is.EqualTo("TestReview"));
         }
+
+        [Test]
+        public void ShouldCalculateTheAverageRatingOfAMovie()
+        {
+            var review1 = new Review(1, "Awful"); 
+            var review2 = new Review(2, "Pretty bad"); 
+            var review3 = new Review(3, "Mediocre"); 
+            var review4 = new Review(4, "Good");
+            var movie = GetTestMovie(review1, review2, review3, review4);
+
+            Assert.That(movie.CalculateAverageRating(), Is.EqualTo(2.5));
+        }
          
         private static Movie GetTestMovie(params Review[] reviews)
         {
