@@ -8,10 +8,7 @@ namespace MovieReviews
         [Test]
         public void CanAddAReview()
         {
-            var testMovie = new Movie("Test");
-            var basicReview = new Review(5);
-
-            testMovie.AddReview(basicReview);
+            var testMovie = SetupTestMovieWithReview();
 
             Assert.That(testMovie.GetReviews(), Is.Not.Empty);
         }
@@ -19,10 +16,7 @@ namespace MovieReviews
         [Test]
         public void ShouldGetReviewRating()
         {
-            var testMovie = new Movie("Test");
-            var review = new Review(5);
-
-            testMovie.AddReview(review);
+            var testMovie = SetupTestMovieWithReview();
 
             var addedReview = testMovie.GetReviews().First();
             Assert.That(addedReview.Rating(), Is.EqualTo(5));
@@ -31,10 +25,7 @@ namespace MovieReviews
         [Test]
         public void ShouldGetTheNameOfTheReviewer()
         {
-            var testMovie = new Movie("Test");
-            var review = new Review(5, "James");
-
-            testMovie.AddReview(review);
+            var testMovie = SetupTestMovieWithReview();
 
             var addedReview = testMovie.GetReviews().First();
             Assert.That(addedReview.ReviewerName(), Is.EqualTo("James"));
@@ -43,13 +34,19 @@ namespace MovieReviews
         [Test]
         public void DefaultNameShouldBeAnonymous()
         {
-            var movie = new Movie("Test");
-            var unamedReview = new Review(5);
-
-            movie.AddReview(unamedReview);
+            var unamedReview = new Review(5, "Review");
+            var movie = SetupTestMovieWithReview(unamedReview);
 
             var addedReview = movie.GetReviews().First();
             Assert.That(addedReview.ReviewerName(), Is.EqualTo("Anonymous"));
+        }
+        private static Movie SetupTestMovieWithReview(Review review = null)
+        {
+            var testMovie = new Movie("Test");
+            review = review ?? new Review(5, "James", "TestReview");
+
+            testMovie.AddReview(review);
+            return testMovie;
         }
     }
 }
