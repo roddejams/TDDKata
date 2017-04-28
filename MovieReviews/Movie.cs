@@ -27,5 +27,10 @@ namespace MovieReviews
             double sumOfRatings = m_Reviews.Sum(review => review.Rating());
             return sumOfRatings / m_Reviews.Count;
         }
+
+        public int NumberOfReviewsWithRating(int rating)
+        {
+            return 1;
+        }
     }
 }
