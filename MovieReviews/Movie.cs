@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MovieReviews
 {
@@ -23,7 +24,8 @@ namespace MovieReviews
 
         public double CalculateAverageRating()
         {
-            return 0;
+            double sumOfRatings = m_Reviews.Sum(review => review.Rating());
+            return sumOfRatings / m_Reviews.Count;
         }
     }
 }
