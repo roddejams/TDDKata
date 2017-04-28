@@ -8,7 +8,7 @@ namespace MovieReviews
         public void CanAddAReview()
         {
             var testMovie = new Movie("Test");
-            var basicReview = new MovieReview();
+            var basicReview = new Review();
 
             testMovie.AddReview(basicReview);
 

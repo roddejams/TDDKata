@@ -4,19 +4,19 @@ namespace MovieReviews
 {
     public class Movie
     {
-        private readonly List<MovieReview> m_Reviews = new List<MovieReview>();
+        private readonly List<Review> m_Reviews = new List<Review>();
 
         public Movie(string title)
         {
             
         }
 
-        public void AddReview(MovieReview newReview)
+        public void AddReview(Review newReview)
         {
             m_Reviews.Add(newReview);
         }
 
-        public List<MovieReview> GetReviews()
+        public List<Review> GetReviews()
         {
             return m_Reviews;
         }

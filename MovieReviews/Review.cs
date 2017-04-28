@@ -1,6 +1,6 @@
 namespace MovieReviews
 {
-    public class MovieReview
+    public class Review
     {
     }
 }
