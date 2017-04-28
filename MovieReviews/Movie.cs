@@ -4,6 +4,8 @@ namespace MovieReviews
 {
     public class Movie
     {
+        private readonly List<MovieReview> m_Reviews = new List<MovieReview>();
+
         public Movie(string title)
         {
             
@@ -11,12 +13,12 @@ namespace MovieReviews
 
         public void AddReview(MovieReview newReview)
         {
-            
+            m_Reviews.Add(newReview);
         }
 
         public List<MovieReview> GetReviews()
         {
-            return new List<MovieReview>();
+            return m_Reviews;
         }
     }
 }
