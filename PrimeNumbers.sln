@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeNumbers", "PrimeNumbers\PrimeNumbers.csproj", "{690573E3-A9AC-437C-BDF2-DB0BDF8F90FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieReviews", "MovieReviews\MovieReviews.csproj", "{1BBFF128-2809-402A-88A5-5AC5AC287B6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{690573E3-A9AC-437C-BDF2-DB0BDF8F90FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{690573E3-A9AC-437C-BDF2-DB0BDF8F90FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{690573E3-A9AC-437C-BDF2-DB0BDF8F90FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BBFF128-2809-402A-88A5-5AC5AC287B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BBFF128-2809-402A-88A5-5AC5AC287B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BBFF128-2809-402A-88A5-5AC5AC287B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BBFF128-2809-402A-88A5-5AC5AC287B6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
