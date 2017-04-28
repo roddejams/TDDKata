@@ -39,5 +39,17 @@ namespace MovieReviews
             var addedReview = testMovie.GetReviews().First();
             Assert.That(addedReview.ReviewerName(), Is.EqualTo("James"));
         }
+
+        [Test]
+        public void DefaultNameShouldBeAnonymous()
+        {
+            var movie = new Movie("Test");
+            var unamedReview = new Review(5);
+
+            movie.AddReview(unamedReview);
+
+            var addedReview = movie.GetReviews().First();
+            Assert.That(addedReview.ReviewerName(), Is.EqualTo("Anonymous"));
+        }
     }
 }
