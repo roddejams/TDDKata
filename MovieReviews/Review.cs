@@ -4,16 +4,27 @@ namespace MovieReviews
 {
     public class Review
     {
-        private readonly int m_rating;
+        private readonly int _rating;
+        private readonly string _reviewerName;
 
         public Review(int rating)
         {
-            m_rating = rating;
+            _rating = rating;
+        }
+
+        public Review(int rating, string reviewerName) : this(rating)
+        {
+            _reviewerName = reviewerName;
         }
 
         public int Rating()
         {
-            return m_rating;
+            return _rating;
+        }
+
+        public string ReviewerName()
+        {
+            return "";
         }
     }
 }

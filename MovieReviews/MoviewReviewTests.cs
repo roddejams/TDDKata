@@ -27,5 +27,17 @@ namespace MovieReviews
             var addedReview = testMovie.GetReviews().First();
             Assert.That(addedReview.Rating(), Is.EqualTo(5));
         }
+
+        [Test]
+        public void ShouldGetTheNameOfTheReviewer()
+        {
+            var testMovie = new Movie("Test");
+            var review = new Review(5, "James");
+
+            testMovie.AddReview(review);
+
+            var addedReview = testMovie.GetReviews().First();
+            Assert.That(addedReview.ReviewerName(), Is.EqualTo("James"));
+        }
     }
 }
