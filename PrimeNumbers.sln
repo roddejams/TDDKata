@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeNumbers", "PrimeNumber
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieReviews", "MovieReviews\MovieReviews.csproj", "{1BBFF128-2809-402A-88A5-5AC5AC287B6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissors", "RockPaperScissors\RockPaperScissors.csproj", "{79A80EB8-532C-4E75-8FD4-DC8A7BF2ECC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1BBFF128-2809-402A-88A5-5AC5AC287B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BBFF128-2809-402A-88A5-5AC5AC287B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BBFF128-2809-402A-88A5-5AC5AC287B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79A80EB8-532C-4E75-8FD4-DC8A7BF2ECC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A80EB8-532C-4E75-8FD4-DC8A7BF2ECC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A80EB8-532C-4E75-8FD4-DC8A7BF2ECC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A80EB8-532C-4E75-8FD4-DC8A7BF2ECC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
