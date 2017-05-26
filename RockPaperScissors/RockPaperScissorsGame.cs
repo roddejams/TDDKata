@@ -1,9 +1,5 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using NUnit.Framework.Constraints;
 
 namespace RockPaperScissors
 {
@@ -82,7 +78,7 @@ namespace RockPaperScissors
             };
         }
 
-        public Tuple<KeyValuePair<string, int>, KeyValuePair<string, int>> GetScore()
+        public (KeyValuePair<string, int> player1, KeyValuePair<string, int> player2) GetScore()
         {
             var p1Score = 0;
             var p2Score = 0;
@@ -112,7 +108,7 @@ namespace RockPaperScissors
                 }
             }
 
-            return Tuple.Create(
+            return (
                 new KeyValuePair<string, int>(_player1.Name, p1Score),
                 new KeyValuePair<string, int>(_player2.Name, p2Score)
             );
@@ -128,8 +124,8 @@ namespace RockPaperScissors
         {
             var score = GetScore();
 
-            var playerOneScore = score.Item1.Value;
-            var playerTwoScore = score.Item2.Value;
+            var playerOneScore = score.player1.Value;
+            var playerTwoScore = score.player2.Value;
 
             if (GetPlayedRoundCount() >= 3)
             {
