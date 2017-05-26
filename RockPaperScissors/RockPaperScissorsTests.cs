@@ -53,5 +53,30 @@ namespace RockPaperScissors
             Assert.That(score.Item1.Value, Is.EqualTo(playerOneScore));
             Assert.That(score.Item2.Value, Is.EqualTo(playerTwoScore));
         }
+
+        [Test]
+        public void PlayerCanWinGame()
+        {
+            var player1 = new Player("One");
+            var player2 = new Player("Two");
+
+            var game = new RockPaperScissorsGame(player1, player2);
+
+            //Round 1
+            player1.SelectMove(Move.Rock);
+            player2.SelectMove(Move.Scissors);
+
+            //Round 2
+            player1.SelectMove(Move.Rock);
+            player2.SelectMove(Move.Scissors);
+
+            //Round 3
+            player1.SelectMove(Move.Rock);
+            player2.SelectMove(Move.Scissors);
+
+            var winner = game.Winner();
+
+            Assert.That(winner, Is.EqualTo("One"));
+        }
     }
 }

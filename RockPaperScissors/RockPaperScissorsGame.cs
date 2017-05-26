@@ -86,8 +86,8 @@ namespace RockPaperScissors
         {
             var p1Score = 0;
             var p2Score = 0;
-            var minMoves = Math.Min(Player1Moves.Count, Player2Moves.Count);
-            for (int i = 0; i < minMoves; i++)
+            var numRounds = GetPlayedRoundCount();
+            for (int i = 0; i < numRounds; i++)
             {
                 var p1 = Player1Moves[i];
                 var p2 = Player2Moves[i];
@@ -116,6 +116,35 @@ namespace RockPaperScissors
                 new KeyValuePair<string, int>(_player1.Name, p1Score),
                 new KeyValuePair<string, int>(_player2.Name, p2Score)
             );
+        }
+
+        private int GetPlayedRoundCount()
+        {
+            var minMoves = Math.Min(Player1Moves.Count, Player2Moves.Count);
+            return minMoves;
+        }
+
+        public string Winner()
+        {
+            var score = GetScore();
+
+            var playerOneScore = score.Item1.Value;
+            var playerTwoScore = score.Item2.Value;
+
+            if (GetPlayedRoundCount() >= 3)
+            {
+                if (playerOneScore > playerTwoScore)
+                {
+                    return _player1.Name;
+                }
+
+                if (playerTwoScore > playerOneScore)
+                {
+                    return _player2.Name;
+                }
+            }
+
+            return null;
         }
     }
 }
