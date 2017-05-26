@@ -50,8 +50,8 @@ namespace RockPaperScissors
             player2.SelectMove(playerTwoMove);
 
             var score = game.GetScore();
-            Assert.That(score.Item1.Value, Is.EqualTo(playerOneScore));
-            Assert.That(score.Item2.Value, Is.EqualTo(playerTwoScore));
+            Assert.That(score.player1.Value, Is.EqualTo(playerOneScore));
+            Assert.That(score.player2.Value, Is.EqualTo(playerTwoScore));
         }
 
         [Test]
@@ -77,6 +77,101 @@ namespace RockPaperScissors
             var winner = game.Winner();
 
             Assert.That(winner, Is.EqualTo("One"));
+        }
+
+        [Test]
+        public void MustPlayThreeRounds()
+        {
+            var player1 = new Player("One");
+            var player2 = new Player("Two");
+
+            var game = new RockPaperScissorsGame(player1, player2);
+
+            //Round 1
+            player1.SelectMove(Move.Rock);
+            player2.SelectMove(Move.Scissors);
+
+            var winner = game.Winner();
+
+            Assert.That(winner, Is.Null);
+        }
+
+        [Test]
+        public void MustFinishAtLeastThreeRounds()
+        {
+            var player1 = new Player("One");
+            var player2 = new Player("Two");
+
+            var game = new RockPaperScissorsGame(player1, player2);
+
+            //Round 1
+            player1.SelectMove(Move.Rock);
+            player2.SelectMove(Move.Scissors);
+
+            //Round 2
+            player1.SelectMove(Move.Rock);
+            player2.SelectMove(Move.Scissors);
+
+            //Round 3
+            player1.SelectMove(Move.Rock);
+
+            var winner = game.Winner();
+
+            Assert.That(winner, Is.Null);
+        }
+
+        [Test]
+        public void MustHaveAClearWinner()
+        {
+            var player1 = new Player("One");
+            var player2 = new Player("Two");
+
+            var game = new RockPaperScissorsGame(player1, player2);
+
+            //Round 1
+            player1.SelectMove(Move.Scissors);
+            player2.SelectMove(Move.Scissors);
+
+            //Round 2
+            player1.SelectMove(Move.Scissors);
+            player2.SelectMove(Move.Scissors);
+
+            //Round 3
+            player1.SelectMove(Move.Scissors);
+            player2.SelectMove(Move.Scissors);
+
+            var winner = game.Winner();
+
+            Assert.That(winner, Is.Null);
+        }
+
+        [Test]
+        public void FirstRoundWinnerAfterThreeRoundsWins()
+        {
+            var player1 = new Player("One");
+            var player2 = new Player("Two");
+
+            var game = new RockPaperScissorsGame(player1, player2);
+
+            //Round 1
+            player1.SelectMove(Move.Rock);
+            player2.SelectMove(Move.Scissors);
+
+            //Round 2
+            player1.SelectMove(Move.Scissors);
+            player2.SelectMove(Move.Rock);
+
+            //Round 3
+            player1.SelectMove(Move.Scissors);
+            player2.SelectMove(Move.Scissors);
+
+            //Round 4
+            player1.SelectMove(Move.Scissors);
+            player2.SelectMove(Move.Rock);
+
+            var winner = game.Winner();
+
+            Assert.That(winner, Is.EqualTo("Two"));
         }
     }
 }
