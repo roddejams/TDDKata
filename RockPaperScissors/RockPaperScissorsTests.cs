@@ -30,20 +30,28 @@ namespace RockPaperScissors
             Assert.That(exception.ParamName, Is.EqualTo("player2"));
         }
 
-        [Test]
-        public void PaperShouldWinAgainstRock()
+        [TestCase(Move.Paper, Move.Rock, 1, 0)]
+        [TestCase(Move.Paper, Move.Paper, 1, 1)]
+        [TestCase(Move.Paper, Move.Scissors, 0, 1)]
+        [TestCase(Move.Rock, Move.Rock, 1, 1)]
+        [TestCase(Move.Rock, Move.Paper, 0, 1)]
+        [TestCase(Move.Rock, Move.Scissors, 1, 0)]
+        [TestCase(Move.Scissors, Move.Rock, 0, 1)]
+        [TestCase(Move.Scissors, Move.Paper, 1, 0)]
+        [TestCase(Move.Scissors, Move.Scissors, 1, 1)]
+        public void PaperShouldWinAgainstRock(Move playerOneMove, Move playerTwoMove, int playerOneScore, int playerTwoScore)
         {
             var player1 = new Player("One");
             var player2 = new Player("Two");
 
             var game = new RockPaperScissorsGame(player1, player2);
 
-            player1.SelectMove(Move.Paper);
-            player2.SelectMove(Move.Rock);
+            player1.SelectMove(playerOneMove);
+            player2.SelectMove(playerTwoMove);
 
             var score = game.GetScore();
-            Assert.That(score.Item1.Value, Is.EqualTo(1));
-            Assert.That(score.Item2.Value, Is.EqualTo(0));
+            Assert.That(score.Item1.Value, Is.EqualTo(playerOneScore));
+            Assert.That(score.Item2.Value, Is.EqualTo(playerTwoScore));
         }
     }
 }
