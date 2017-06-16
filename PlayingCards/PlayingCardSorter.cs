@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PlayingCards
 {
@@ -6,7 +7,18 @@ namespace PlayingCards
     {
         public IEnumerable<PlayingCard> Sort(IEnumerable<PlayingCard> playingCards)
         {
-            return new List<PlayingCard>();
+            if (playingCards.Any())
+            {
+                var firstCard = playingCards.FirstOrDefault();
+                var lastCard = playingCards.LastOrDefault();
+
+                if (lastCard.Rank < firstCard.Rank)
+                {
+                    return new List<PlayingCard> {lastCard, firstCard};
+                }
+            }
+
+            return playingCards;
         }
     }
 }
