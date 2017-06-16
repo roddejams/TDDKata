@@ -5,17 +5,23 @@ namespace PlayingCards
 {
     public class PlayingCardSorter
     {
-        public IEnumerable<PlayingCard> Sort(IEnumerable<PlayingCard> playingCards)
+        public IList<PlayingCard> Sort(IList<PlayingCard> playingCards)
         {
-            if (playingCards.Any())
+            if (playingCards.Count() >= 2)
             {
-                var firstCard = playingCards.FirstOrDefault();
-                var lastCard = playingCards.LastOrDefault();
-
-                if (lastCard.Rank < firstCard.Rank)
+                var first = playingCards.First();
+                var rest = playingCards.Skip(1).ToList();
+                var sortedRest = Sort(rest);
+                foreach (var card in sortedRest.ToList())
                 {
-                    return new List<PlayingCard> {lastCard, firstCard};
+                    if (card > first)
+                    {
+                        sortedRest.Insert(sortedRest.IndexOf(card), first);
+                        return sortedRest;
+                    }
                 }
+                sortedRest.Add(first);
+                return sortedRest;
             }
 
             return playingCards;
